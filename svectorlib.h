@@ -6,22 +6,16 @@ typedef struct {
 	int *data;
 } svector_int;
 
-/*
- * initialize the vector
- */
+/* initialize the vector */
 void svector_init(svector_int *v);
 
-/*
- * add an element to the vector 
- */
+/* free the memory containing the vector */
+void svector_free(svector_int *v);
+
+
+
+/* add an element to the vector */
 void svector_push(svector_int *v, int value);
 
-/*
- * get an element from the vector 
- */
-void svector_get(svector_int *v, size_t index);
-
-/*
- * free the memory containing the vector
- */
-void svector_free(svector_int *v);
+/* get an element from the vector */
+int svector_get(const svector_int *v, size_t index);
