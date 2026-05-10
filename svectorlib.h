@@ -19,3 +19,13 @@ void svector_push(svector_int *v, int value);
 
 /* get an element from the vector */
 int svector_get(const svector_int *v, size_t index);
+
+/* remove the highest index element */
+// interesting way to think is that the pop function doenst actually "delete" the element it just makes it so that trying to access that index is invalid
+void svector_pop(svector_int *v);
+
+/* insert an element at a determined index */
+void svector_insert(svector_int *v, int index, int value);
+
+/* remove an element at a determined index */
+void svector_remove(svector_int *v, int index);

@@ -49,3 +49,13 @@ void svector_free(svector_int *v){
 	v->capacity = 0;
 	v->size = 0;
 }
+
+void svector_pop(svector_int *v){
+
+	// this means the vector is empty
+	if(v->size == 0){
+		return; 
+	}
+
+	v->size--; 
+}
