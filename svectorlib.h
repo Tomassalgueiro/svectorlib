@@ -12,8 +12,6 @@ void svector_init(svector_int *v);
 /* free the memory containing the vector */
 void svector_free(svector_int *v);
 
-
-
 /* add an element to the vector */
 void svector_push(svector_int *v, int value);
 
@@ -29,3 +27,6 @@ void svector_insert(svector_int *v, int index, int value);
 
 /* remove an element at a determined index */
 void svector_remove(svector_int *v, int index);
+
+/* print all the elements in a vector */
+void svector_print(svector_int *v);

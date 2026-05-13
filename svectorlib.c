@@ -56,6 +56,12 @@ void svector_pop(svector_int *v){
 	if(v->size == 0){
 		return; 
 	}
-
 	v->size--; 
+}
+
+void svector_print(svector_int *v){
+	for(int i = 0; i < v->size; i++){
+		int var = v->data[i];
+		printf("%d", var);
+	}
 }
