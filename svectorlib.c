@@ -10,6 +10,17 @@ void svector_init(svector_int *v){
 	v->data = NULL; 
 }
 
+void svector_free(svector_int *v){
+	free(v->data);
+	v->data = NULL;
+	v->capacity = 0;
+	v->size = 0;
+}
+
+int svector_size(svector_int *v){
+	return v->size;
+}
+
 void svector_push(svector_int *v, int value){
 
 	if(v->size >= v->capacity){
@@ -43,12 +54,6 @@ int svector_get(const svector_int *v, size_t index){
 	return v->data[index];
 }
 
-void svector_free(svector_int *v){
-	free(v->data);
-	v->data = NULL;
-	v->capacity = 0;
-	v->size = 0;
-}
 
 void svector_pop(svector_int *v){
 
@@ -59,9 +64,17 @@ void svector_pop(svector_int *v){
 	v->size--; 
 }
 
+void svector_insert(svector_int *v, int index, int value){
+
+}
+
+void svector_remove(svector_int *v, int index){
+
+}
+
 void svector_print(svector_int *v){
 	for(int i = 0; i < v->size; i++){
 		int var = v->data[i];
-		printf("%d", var);
+		printf("%d ", var);
 	}
 }
