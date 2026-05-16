@@ -12,4 +12,4 @@ Todo:
 - [x] pop()
 - [x] insert(index)
 - [x] remove(index)
-- [ ] Add support for more types
+- [x] Add support for more types
