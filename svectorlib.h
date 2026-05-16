@@ -64,7 +64,7 @@ int svector_##name##_size(svector_##name *v){                                   
 	return v->size;                                                                                                 \
 }                                                                                                                       \
                                                                                                                         \
-void svector_##name##_push(svector_##name *v, int value){                                                               \
+void svector_##name##_push(svector_##name *v, type value){                                                              \
                                                                                                                         \
 	if(v->size >= v->capacity){                                                                                     \
 		if(v->capacity == 0){                                                                                   \
@@ -74,7 +74,7 @@ void svector_##name##_push(svector_##name *v, int value){                       
 			v->capacity *=2;                                                                                \
 		}                                                                                                       \
                                                                                                                         \
-		int *new_data = realloc(v->data, v->capacity*sizeof(int));                                              \
+		type *new_data = realloc(v->data, v->capacity*sizeof(type));                                            \
 		if(new_data == NULL){                                                                                   \
 			fprintf(stderr, "Invalid data");                                                                \
 			exit(1);                                                                                        \
@@ -87,7 +87,7 @@ void svector_##name##_push(svector_##name *v, int value){                       
 	v-> size++;                                                                                                     \
 }                                                                                                                       \
                                                                                                                         \
-int svector_##name##_get(const svector_##name *v, size_t index){                                                        \
+type svector_##name##_get(const svector_##name *v, size_t index){                                                       \
                                                                                                                         \
 	if(index >= v->size){                                                                                           \
 		fprintf(stderr, "Index out of bounds");                                                                 \
@@ -106,7 +106,7 @@ void svector_##name##_pop(svector_##name *v){                                   
 	v->size--;                                                                                                      \
 }                                                                                                                       \
                                                                                                                         \
-void svector_##name##_insert(svector_##name *v, int index, int value){                                                  \
+void svector_##name##_insert(svector_##name *v, int index, type value){                                                 \
                                                                                                                         \
 	if(index < 0 || index > v->size){                                                                               \
 		fprintf(stderr, "Index out of bounds");                                                                 \
@@ -121,7 +121,7 @@ void svector_##name##_insert(svector_##name *v, int index, int value){          
 			v->capacity *=2;                                                                                \
 		}                                                                                                       \
                                                                                                                         \
-		int *new_data = realloc(v->data, v->capacity*sizeof(int));                                              \
+		type *new_data = realloc(v->data, v->capacity*sizeof(type));                                            \
 		if(new_data == NULL){                                                                                   \
 			fprintf(stderr, "Failed to realloc data");                                                      \
 			exit(1);                                                                                        \
@@ -130,7 +130,7 @@ void svector_##name##_insert(svector_##name *v, int index, int value){          
 		v->data = new_data;                                                                                     \
 	}                                                                                                               \
                                                                                                                         \
-	if (index == v->size) { svector_push(v, value); return; }                                                       \
+	if (index == v->size) { svector_##name##_push(v, value); return; }                                              \
 	for(int i = v->size; i > index; i--){                                                                           \
 		v->data[i] = v->data[i-1];                                                                              \
 	}                                                                                                               \
@@ -146,7 +146,7 @@ void svector_##name##_remove(svector_##name *v, int index){                     
 		exit(1);                                                                                                \
 	}                                                                                                               \
 	                                                                                                                \
-	if (index == v->size-1) { svector_pop(v); return; }                                                             \
+	if (index == v->size-1) { svector_##name##_pop(v); return; }                                                    \
 	for(int i = index; i < v->size-1; i++){                                                                         \
 		v->data[i] = v->data[i+1];                                                                              \
 	}                                                                                                               \
@@ -156,7 +156,7 @@ void svector_##name##_remove(svector_##name *v, int index){                     
                                                                                                                         \
 void svector_##name##_print(svector_##name *v){                                                                         \
 	for(int i = 0; i < v->size; i++){                                                                               \
-		int var = v->data[i];                                                                                   \
+		type var = v->data[i];                                                                                  \
 		printf("%d ", var);                                                                                     \
 	}                                                                                                               \
 }                                                                                                                       \
