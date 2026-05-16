@@ -10,7 +10,6 @@ Todo:
 - [x] get
 - [x] free
 - [x] pop()
-- [ ] insert(index)
-- [ ] remove(index)
-- [ ] clear()
+- [x] insert(index)
+- [x] remove(index)
 - [ ] Add support for more types
