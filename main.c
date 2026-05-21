@@ -7,6 +7,7 @@ SVECTOR_DEFINE(char*, string)
 
 int main() {
 
+    // int vector
     svector_int vi;
     svector_int_init(&vi);
 
