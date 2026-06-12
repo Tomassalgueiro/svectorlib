@@ -38,7 +38,7 @@ void svector_##name##_print(svector_int *v);
 #include <stdlib.h>
 #include <stdio.h>
 
-#define SVECTOR_DEFINE(type,name)											\
+#define SVECTOR_DEFINE(type,name,fmt)											\
 							                                                                \
 							                                                                \
 typedef struct {					                                                                \
@@ -157,7 +157,7 @@ void svector_##name##_remove(svector_##name *v, int index){                     
 void svector_##name##_print(svector_##name *v){                                                                         \
 	for(int i = 0; i < v->size; i++){                                                                               \
 		type var = v->data[i];                                                                                  \
-		printf("%d ", var);                                                                                     \
+		printf(fmt " ", var);                                                                                     \
 	}                                                                                                               \
 }                                                                                                                       \
 

@@ -1,9 +1,9 @@
 #include "svectorlib.h"
 
 // generate vector types
-SVECTOR_DEFINE(int, int)
-SVECTOR_DEFINE(float, float)
-SVECTOR_DEFINE(char*, string)
+SVECTOR_DEFINE(int, int, "%d")
+SVECTOR_DEFINE(float, float, "%f")
+SVECTOR_DEFINE(char*, string, "%c")
 
 int main() {
 
